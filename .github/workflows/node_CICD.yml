@@ -1,7 +1,7 @@
 name: Node JS CI/CD Pipeline
 
 on:
-  push:
+  pull_request:
     branches:
       - master
 
