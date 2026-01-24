@@ -1,0 +1,25 @@
+name: nodejs CI
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  continuous_integration:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Setup Node js 22
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: "npm"
+
+      - name: Install depencencies
+        run: npm install
+
+      - name: Build application
+        run: npm run build
